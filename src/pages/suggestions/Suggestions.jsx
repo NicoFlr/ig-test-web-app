@@ -5,7 +5,7 @@ import {
   } from '../../services/suggestionService';
 export function Suggestions() {
     const [suggestions, setSuggestions] = useState([]);
-    const [topic, setTopic] = useState([]);
+    const [topic, setTopic] = useState("");
     const [showSuggestions, setShowSuggestions] = useState(false);
     
     const handleGetSuggestions = async() => {
@@ -33,6 +33,7 @@ export function Suggestions() {
             <button 
                 className="suggestions-button"
                 onClick={handleGetSuggestions}
+                disabled={!topic.trim()}
             >
                 Generate suggestions
             </button>
